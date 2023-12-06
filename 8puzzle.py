@@ -77,7 +77,3 @@ def gen(state, m, b):
 src = [1,2,3,0,4,5,6,7,8]
 target = [1,2,3,4,5,0,6,7,8]         
 bfs(src, target)
-
-src = [1,0,3,4,2,6,7,5,8]
-target = [1,2,3,4,5,6,7,8,0]         
-bfs(src, target)
