@@ -7,13 +7,28 @@ def evaluate_first(premise, conclusion):
         for q in [True, False]
         for r in [True, False]
     ]
-
     # Check if the premise logically entails the conclusion
     entails = True  # Initially assume the premise entails the conclusion
     for model in models:
         if evaluate_expression(premise, model) != evaluate_expression(conclusion, model):
             entails = False  # If any model disagrees, premise does not entail conclusion
             break
+
+    # Return the result
+    return entails
+
+# Define a function to evaluate logical expressions for the second input
+def evaluate_second(premise, conclusion):
+    # Generate all possible truth assignments to p, q, and r
+    models = [
+        {'p': p, 'q': q, 'r': r}
+        for p in [True, False]
+        for q in [True, False]
+        for r in [True, False]
+    ]
+
+    # Check if the conclusion holds in every model where the premise is true
+    entails = all(evaluate_expression(premise, model) for model in models if evaluate_expression(conclusion, model) and evaluate_expression(premise, model))
 
     # Return the result
     return entails
