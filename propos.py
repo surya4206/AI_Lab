@@ -44,7 +44,7 @@ second_conclusion = 'r'
 
 # Evaluate both inputs using the merged function
 result_first = evaluate_first(first_premise, first_conclusion)
-result_second = evaluate_second(second_premise, second_conclusion)
+result_second = evaluate_first(second_premise, second_conclusion)
 
 # Print the results for both inputs
 if result_first:
